@@ -1,0 +1,38 @@
+{
+  "name": "Boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://finnursig@github.com/finnursig/Boilerplate.git"
+  },
+  "author": "Finnur Sigurdsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/finnursig/Boilerplate/issues"
+  },
+  "homepage": "https://github.com/finnursig/Boilerplate",
+  "devDependencies": {
+    "autoprefixer-loader": "^1.1.0",
+    "css-loader": "^0.9.1",
+    "ejs-loader": "^0.1.0",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "gulp": "^3.8.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-livereload": "^3.5.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-tap": "^0.1.3",
+    "less": "^2.2.0",
+    "less-loader": "^2.0.0",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.5.3"
+  },
+  "dependencies": {
+    "harp": "^0.14.0",
+    "normalize.css": "^3.0.2"
+  }
+}

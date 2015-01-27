@@ -1,0 +1,11 @@
+<%
+for(var i in public.assets._contents){
+	var format = ext === 'js' ? '<script src="'+ folder +'/{0}"></script>' : '<link type="text/css" rel="stylesheet" href="'+ folder +'/{0}">';
+
+	if(public.assets._contents[i].indexOf('.'+ ext) !== -1) {
+%>
+<%- format.replace('{0}', public.assets._contents[i]) %>
+<%
+	}
+}
+%>
