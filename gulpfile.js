@@ -1,13 +1,14 @@
 var gulp = require('gulp');
+var less = require('gulp-less');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 var liveReload = require('gulp-livereload');
 var clean = require('gulp-clean');
 var plumber = require('gulp-plumber');
-var tap = require('gulp-tap');
-
+var open = require('open');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config');
 
-var server = require('./server');
 
 gulp.task('cleanScripts', function(){
 	return gulp.src(['public/assets*'], { read: false })
@@ -55,13 +56,31 @@ gulp.task('templates', function(){
 	liveReload.changed('*.html');
 });
 
+gulp.task('less', function () {
+	return gulp.src('src/less/main.less')
+		//.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(plumber())
+		.pipe(less({
+			paths: ['./node_modules']
+		}))
+		//.pipe(sourcemaps.write())
+		.pipe(autoprefixer())
+		.pipe(gulp.dest('public/assets'))
+		.pipe(liveReload());
+});
+
 gulp.task('watch', function(){
 	liveReload.listen();
 
-	gulp.watch('src/**/*.{js,less}', ['scripts']);
+	gulp.watch('src/scripts/**/*.{js,less}', ['scripts']);
+	gulp.watch('src/less/**/*.{less,css	}', ['less']);
 	gulp.watch('public/**/*.{ejs,html,json,img}', ['templates']);
 });
 
-gulp.task('default', ['scripts', 'templates'], function(){
+gulp.task('default', ['less', 'scripts', 'templates'], function(){
+	var server = require('./server');
+
+	open(server.url);
+
 	return gulp.start('watch');
 });
