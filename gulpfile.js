@@ -5,7 +5,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var liveReload = require('gulp-livereload');
 var clean = require('gulp-clean');
 var plumber = require('gulp-plumber');
-var open = require('open');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config');
 
@@ -79,8 +78,6 @@ gulp.task('watch', function(){
 
 gulp.task('default', ['less', 'scripts', 'templates'], function(){
 	var server = require('./server');
-
-	open(server.url);
 
 	return gulp.start('watch');
 });
