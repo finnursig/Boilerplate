@@ -44,11 +44,15 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.optimize.CommonsChunkPlugin('common.bundle.js'),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'common',
+			minChunks: Infinity
+		}),
 		new ExtractTextPlugin('[name].bundle.css', {
 			allChunks: true
 		}),
 		new webpack.ProvidePlugin({
+			//Backbone: 'backbone',
 			//_: 'underscore',
 			//$: 'jquery'
 		})

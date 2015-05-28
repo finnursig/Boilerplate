@@ -1,3 +1,3 @@
-//require('../less/main.less');
+require('./main.less');
 
-console.log('Hello world!!');
+console.log('main.js called');
