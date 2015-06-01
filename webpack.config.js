@@ -33,6 +33,16 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: 'ejs-loader'
+			},
+			//{
+			//	test: /\.jsx$/,
+			//	exclude: /node_modules/,
+			//	loader: 'babel-loader?experimental&optional=runtime'
+			//},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
 			}
 		]
 	},
@@ -44,10 +54,10 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'common',
-			minChunks: Infinity
-		}),
+		//new webpack.optimize.CommonsChunkPlugin({
+		//	name: 'common',
+		//	minChunks: Infinity
+		//}),
 		new ExtractTextPlugin('[name].bundle.css', {
 			allChunks: true
 		}),
