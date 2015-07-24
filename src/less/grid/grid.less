@@ -1,0 +1,81 @@
+@grid-gutter: 30px;
+@grid-count: 4;
+@grid-min-break: 320;
+@grid-max-break: 1200;
+@grid-break-interval: 120;
+@grid-max-width: 1280px;
+
+@import "../config";
+@import "mixins";
+
+.container {
+	.container();
+}
+
+.grid {
+	.make-row();
+
+	> [class*="__col"] {
+		.make-col();
+	}
+
+	.spanX(@index, @total) when (@index > 0) {
+		> .grid__col--@{index}of@{total} {
+			.span(@index, @total);
+		}
+
+		.spanX(@index - 1, @total);
+	}
+
+	.spanX(0, @total) {}
+
+	.span(@columns, @total) {
+		@final: (100 / @total) * @columns;
+		width: ~"@{final}%";
+	}
+
+	.grids(@index, @total) when (@index > 0){
+		.spanX (@index, @total);
+		.grids (@index - 1, @total - 1);
+	}
+
+	.grids(0, @total) {}
+
+	.grids(@grid-count, @grid-count);
+
+	&__reverse {
+		> [class*="col-"] {
+			float: right;
+		}
+	}
+
+	&--no-gutter {
+		margin-left: 0;
+		margin-right: 0;
+
+		> [class*="__col"] {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	&--gutter-narrow {
+		margin-left: -@grid-gutter/4;
+		margin-right: -@grid-gutter/4;
+
+		> [class*="__col"] {
+			padding-left: @grid-gutter/4;
+			padding-right: @grid-gutter/4;
+		}
+	}
+
+	&--gutter-wide {
+		margin-left: -@grid-gutter;
+		margin-right: -@grid-gutter;
+
+		> [class*="__col"] {
+			padding-left: @grid-gutter;
+			padding-right: @grid-gutter;
+		}
+	}
+}

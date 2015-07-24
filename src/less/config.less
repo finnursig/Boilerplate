@@ -1,5 +1,5 @@
-@min-width: 320; // Page min width
-@max-width: 1280; // Page max width
+@min-width: 32rem; // Page min width
+@max-width: 96rem; // Page max width
 @base-size: 1.6em;
 
 @spacing: 1.5rem; // Text and inline spacing
@@ -7,14 +7,69 @@
 @radius: 0.01rem; // Default border radius
 
 // Grid
+@grid-gutter: @gutter;
 @grid-count: 4;
 @grid-min-break: 320;
 @grid-max-break: 1200;
 @grid-break-interval: 120;
+@grid-max-width: @max-width;
 
 // Typography
 @font-family: Arial, tahoma, sans-serif;
-@font-family-special: 'Open Sans', @font-family;
+@font-family-special: @font-family;
 @font-size: convert(@base-size,rem);
 @font-color: #333;
 @line-height: 1.5;
+
+// Custom break points
+@min-1200: unit((1200 * 0.0625),em);
+@min-1080: unit((1080 * 0.0625),em);
+@min-960: unit((960 * 0.0625),em);
+@min-840: unit((840 * 0.0625),em);
+@min-768: unit((768 * 0.0625),em);
+@min-720: unit((720 * 0.0625),em);
+@min-600: unit((600 * 0.0625),em);
+@min-540: unit((540 * 0.0625),em);
+@min-480: unit((480 * 0.0625),em);
+@min-360: unit((360 * 0.0625),em);
+
+// Custom break points
+@max-1200: unit((1199 * 0.0625),em);
+@max-1080: unit((1079 * 0.0625),em);
+@max-960: unit((959 * 0.0625),em);
+@max-840: unit((839 * 0.0625),em);
+@max-768: unit((767 * 0.0625),em);
+@max-720: unit((719 * 0.0625),em);
+@max-600: unit((599 * 0.0625),em);
+@max-540: unit((539 * 0.0625),em);
+@max-480: unit((479 * 0.0625),em);
+@max-360: unit((359 * 0.0625),em);
+
+// Colors
+@color-red: red;
+@color-orange: orange;
+@color-yellow: yellow;
+@color-green: green;
+@color-blue: blue;
+@color-magenta: magenta;
+
+// Grayscale
+@color-gray: #ccc;
+@color-gray-dark: #999;
+@color-gray-light: #eee;
+
+// Brand
+@color-primary: @color-blue;
+@color-secondary: @color-red;
+
+@color-border: @color-gray;
+@color-border-primary: @color-border;
+@color-border-secondary: @color-gray-light;
+
+// UI variables
+@header-height: 10rem;
+
+// Input heights
+@input-small: 3rem;
+@input-normal: 4rem;
+@input-large: 5rem;
