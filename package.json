@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/finnursig/Boilerplate",
   "devDependencies": {
-    "autoprefixer-loader": "^1.1.0",
-    "css-loader": "^0.9.1",
-    "ejs-loader": "^0.1.0",
+    "autoprefixer-loader": "*",
+    "css-loader": "*",
+    "ejs-loader": "*",
     "extract-text-webpack-plugin": "^0.3.8",
     "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
+    "gulp-autoprefixer": "*",
     "gulp-clean": "^0.3.1",
     "gulp-less": "^3.0.3",
     "gulp-livereload": "^3.5.0",
@@ -35,6 +35,9 @@
     "webpack": "^1.5.3"
   },
   "dependencies": {
-    "harp": "^0.14.0"
+    "basic-auth": "^1.0.1",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "harp": "*"
   }
 }
