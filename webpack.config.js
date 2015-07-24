@@ -34,11 +34,11 @@ module.exports = {
 				test: /\.html$/,
 				loader: 'ejs-loader'
 			},
-			//{
-			//	test: /\.jsx$/,
-			//	exclude: /node_modules/,
-			//	loader: 'babel-loader?experimental&optional=runtime'
-			//},
+			{
+				test: /\.jsx$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
+			},
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -62,6 +62,7 @@ module.exports = {
 			allChunks: true
 		}),
 		new webpack.ProvidePlugin({
+			//React: 'react'
 			//Backbone: 'backbone',
 			//_: 'underscore',
 			//$: 'jquery'
