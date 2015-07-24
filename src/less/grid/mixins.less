@@ -1,0 +1,53 @@
+@grid-gutter: 30px;
+@grid-count: 4;
+@grid-min-break: 320;
+@grid-max-break: 1200;
+@grid-break-interval: 120;
+@grid-max-width: 1280px;
+
+@import "../config";
+
+.container(@container-max-width: @grid-max-width; @container-min-height: 0.1rem;){
+	margin: 0 auto;
+	padding: 0 @grid-gutter * 0.5;
+	max-width: @container-max-width;
+	min-height: @container-min-height;
+
+	@media (min-width: @min-540) {
+		padding: 0 @grid-gutter;
+	}
+
+	@media (min-width: @min-960) {
+		padding: 0 @grid-gutter * 2;
+	}
+}
+
+.make-row(@row-gutter: @grid-gutter) {
+	*zoom: 1;
+
+	margin-left: -@row-gutter/2;
+	margin-right: -@row-gutter/2;
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.make-col(@width: 100%, @direction: left, @col-gutter: @grid-gutter) {
+	display: block;
+	box-sizing: border-box;
+
+	float: @direction;
+	width: @width;
+
+	padding-left: @col-gutter/2;
+	padding-right: @col-gutter/2;
+
+	min-height: 1px;
+}
