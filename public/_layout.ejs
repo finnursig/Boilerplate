@@ -17,11 +17,14 @@
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+
 </head>
 <body>
 
-<div class="wrap">
-	<%- yield %>
+<div class="app">
+	<div class="app__content">
+		<%- yield %>
+	</div>
 </div>
 
 <%- partial('_shared/assetsLoader.ejs', { folder: '/assets', ext: 'js' }) %>

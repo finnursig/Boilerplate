@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
-var sourcemaps = require('gulp-sourcemaps');
+var sourceMaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var liveReload = require('gulp-livereload');
 var clean = require('gulp-clean');
@@ -57,12 +57,12 @@ gulp.task('templates', function(){
 
 gulp.task('less', function () {
 	return gulp.src('src/less/main.less')
-		//.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(sourceMaps.init({loadMaps: true}))
 		.pipe(plumber())
 		.pipe(less({
 			paths: ['./node_modules']
 		}))
-		//.pipe(sourcemaps.write())
+		.pipe(sourceMaps.write())
 		.pipe(autoprefixer())
 		.pipe(gulp.dest('public/assets'))
 		.pipe(liveReload());
