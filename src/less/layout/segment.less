@@ -1,9 +1,14 @@
 @import "../config";
 
 .segment {
+	padding: @gutter*2 0 (@gutter*2) - @spacing;
 
 	&--white {
 		background-color: #fff;
+
+		& + & {
+			border-top: 0.1rem solid @color-border;
+		}
 	}
 
 	&--gray {
